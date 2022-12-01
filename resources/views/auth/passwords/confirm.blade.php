@@ -1,0 +1,35 @@
+@extends('layouts.auth')
+
+@section('content')
+<form class="form w-100" action="{{ route('password.confirm') }}" method="POST" onsubmit="btnSubmit.disabled=true; btnSubmit.innerText ='Processing'; return true;">
+    @csrf
+    <div class="card-body">
+
+        <div class="text-start mb-10">
+            <h1 class="text-dark mb-3 fs-3x" data-kt-translate="sign-in-title">Confirm Password</h1>
+            <div class="text-gray-400 fw-semibold fs-6" data-kt-translate="general-desc">Please confirm your password before continuing</div>
+        </div>
+
+        <div class="fv-row mb-8">
+            <input type="text" placeholder="Email" name="password" class="form-control form-control-solid @error('password') is-invalid @enderror" autocomplete="current-password" required/>
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        @if (Route::has('password.request'))
+            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-10">
+                <a href="{{ route('password.request') }}" class="link-primary">Forgot Password ?</a>
+            </div>
+        @endif
+
+        <div class="d-flex flex-stack">
+            <button type="submit" class="btn btn-primary me-2 flex-shrink-0" name="btnSubmit">
+                <span class="indicator-label" data-kt-translate="sign-in-submit">Confirm Password</span>
+            </button>
+        </div>
+    </div>
+</form>
+@endsection
