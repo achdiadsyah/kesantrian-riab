@@ -6,7 +6,7 @@
     <div class="card-body">
 
         <div class="text-start mb-10">
-            <h1 class="text-dark mb-3 fs-3x" data-kt-translate="sign-in-title">Sign Up</h1>
+            <h1 class="text-dark mb-3 fs-3x" data-kt-translate="sign-in-title">Sign Up <small class="fs-3">as Staff</small></h1>
             <div class="text-gray-400 fw-semibold fs-6" data-kt-translate="general-desc">Please register your account to get access to this portal</div>
         </div>
 

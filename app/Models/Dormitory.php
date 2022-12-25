@@ -17,6 +17,7 @@ class Dormitory extends Model
         'number',
         'level',
         'limitation',
+        'facility',
         'head_id',
     ];
 

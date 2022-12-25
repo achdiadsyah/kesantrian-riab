@@ -16,8 +16,6 @@ Route::prefix('wilayah')->name('wilayah.')->group(function () {
 
 //-------------------------- My Default Route---------------------------
 
-
-
 Auth::routes([
     'register' => true,
     'reset' => true,
@@ -55,11 +53,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('role-create-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'create'])->name('role-create-data');
             Route::post('role-update-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'update'])->name('role-update-data');
             Route::post('role-delete', [App\Http\Controllers\Admin\RoleManagementController::class, 'destroy'])->name('role-delete');
-
-            Route::get('menu-list', [App\Http\Controllers\Admin\MenuController::class, 'index'])->name('menu-list');
-            Route::post('menu-sequence', [App\Http\Controllers\Admin\MenuController::class, 'updateSequence'])->name('menu-sequence');
-            Route::post('menu-create', [App\Http\Controllers\Admin\MenuController::class, 'create'])->name('menu-create');
-            Route::get('menu-akses/{id}', [App\Http\Controllers\Admin\MenuController::class, 'setAccess'])->name('menu-akses');
         });
     });
 
@@ -67,19 +60,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(['IsStaff'])->group(function () {
         
         Route::prefix('master')->name('master/')->group(function () {
-
-            Route::middleware(['PreventMenuAccess'])->group(function () {
-                Route::get('classroom-list', [App\Http\Controllers\Master\ClassroomController::class, 'index'])->name('classroom-list');
-                Route::get('dormitory-list', [App\Http\Controllers\Master\DormitoryController::class, 'index'])->name('dormitory-list');
-                
-            });
-            
+            Route::get('classroom-list', [App\Http\Controllers\Master\ClassroomController::class, 'index'])->name('classroom-list');
             Route::get('classroom-list/create', [App\Http\Controllers\Master\ClassroomController::class, 'create'])->name('classroom-list-create');
             Route::get('classroom-list/edit/{id}', [App\Http\Controllers\Master\ClassroomController::class, 'edit'])->name('classroom-list-edit');
             Route::post('classroom-list/store', [App\Http\Controllers\Master\ClassroomController::class, 'store'])->name('classroom-list-store');
             Route::post('classroom-list/destroy', [App\Http\Controllers\Master\ClassroomController::class, 'destroy'])->name('classroom-list-store-destroy');
-
             
+            
+            Route::get('dormitory-list', [App\Http\Controllers\Master\DormitoryController::class, 'index'])->name('dormitory-list');
         });
     });
 

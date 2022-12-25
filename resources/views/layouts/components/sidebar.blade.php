@@ -70,17 +70,6 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link" href="{{route('admin.menu-list')}}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <i class="fas fa-list"></i>
-                            </span>
-                        </span>
-                        <span class="menu-title">Menu Management</span>
-                    </a>
-                </div>
-
-                <div class="menu-item">
                     <a class="menu-link" href="">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -98,52 +87,7 @@
                     </div>
                 </div>
                 
-                @if (!empty(Menu::getMenu()))
-                    @foreach(Menu::getMenu() as $key)
-                        @if(count($key->child))
-                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                            <span class="menu-link">
-                                <span class="menu-icon">
-                                    <span class="svg-icon svg-icon-2">
-                                        <i class="{{$key->favicon}}"></i>
-                                    </span>
-                                </span>
-                                <span class="menu-title">{{$key->name}}</span>
-                                <span class="menu-arrow"></span>
-                            </span>
-                            <div class="menu-sub menu-sub-accordion" style="display: none; overflow: hidden;">
-                                @foreach($key->child as $sub)
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="@if($sub->route !== "#") {{route($sub->route)}} @else {{$sub->route}} @endif">
-                                            <span class="menu-bullet">
-                                                <span class="{{$sub->favicon}}"></span>
-                                            </span>
-                                            <span class="menu-title">{{$sub->name}}</span>
-                                        </a>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        @else
-                        <div class="menu-item">
-                            <a class="menu-link" href="@if($key->route !== "#") {{route($key->route)}} @else {{$key->route}} @endif">
-                                <span class="menu-icon">
-                                    <span class="svg-icon svg-icon-2">
-                                        <i class="{{$key->favicon}}"></i>
-                                    </span>
-                                </span>
-                                <span class="menu-title">{{$key->name}}</span>
-                            </a>
-                        </div>
-                        @endif
-                    @endforeach
-                @else
-                    <div class="menu-item pt-5">
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">No Menu</span>
-                        </div>
-                    </div>
-                @endif
+                
                 
             </div>
         </div>

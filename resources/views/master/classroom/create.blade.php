@@ -68,9 +68,15 @@
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group py-3">
+                        <label>Classroom Facility</label>
+                        <textarea name="facility" id="facility" rows="5" class="form-control" required></textarea>
+                        @error('facility')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-danger" onclick="history.back();">Return</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('number')->nullable();
             $table->string('level')->nullable();
             $table->string('limitation')->nullable();
+            $table->longText('facility')->nullable();
             $table->string('head_id');
             $table->foreign('head_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();

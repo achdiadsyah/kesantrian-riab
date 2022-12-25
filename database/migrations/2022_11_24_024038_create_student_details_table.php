@@ -46,6 +46,7 @@ return new class extends Migration
             $table->string('ambition')->nullable();
             $table->enum('status', ['active', 'moved', 'drop_out', 'new'])->nullable();
             $table->enum('is_allow_edit', ['0', '1'])->nullable();
+            $table->year('starting_years')->nullable();
             $table->timestamps();
         });
     }

@@ -52,52 +52,56 @@ class ClassroomController extends Controller
     
     public function store(Request $request)
     {
-        // $validated = Validator::make($request->all(), [
-        //     'name'          => ['required', 'unique:classrooms'],
-        //     'focus'         => ['required'],
-        //     'grade'         => ['required'],
-        //     'limitation'    => ['required'],
-        //     'head_id'       => ['required'],
-        // ]);
+        $validated = Validator::make($request->all(), [
+            'name'          => ['required', 'unique:classrooms'],
+            'focus'         => ['required'],
+            'grade'         => ['required'],
+            'limitation'    => ['required'],
+            'head_id'       => ['required'],
+            'facility'      => ['required'],
+        ]);
 
-        // if ($validated->fails()) {
-        //     return redirect()->back()->withErrors($validated)->withInput();
-        // }
+        if ($validated->fails()) {
+            return redirect()->back()->withErrors($validated)->withInput();
+        }
 
-        // if(!empty($request->classroom_id)){
-        //     $action = Classroom::create([
-        //         'name'          => $request->name,
-        //         'focus'         => $request->focus,
-        //         'grade'         => $request->grade,
-        //         'limtation'     => $request->limtation,
-        //         'head_id'       => $request->head_id,
-        //     ]);
-        // } else {
-        //     $action = Classroom::where('id', $request->classroom_id)
-        //     ->update([
-        //         'name'          => $request->name,
-        //         'focus'         => $request->focus,
-        //         'grade'         => $request->grade,
-        //         'limtation'     => $request->limtation,
-        //         'head_id'       => $request->head_id,
-        //     ]);
+        if(!empty($request->classroom_id)){
+            $action = Classroom::create([
+                'name'          => $request->name,
+                'focus'         => $request->focus,
+                'grade'         => $request->grade,
+                'limtation'     => $request->limtation,
+                'head_id'       => $request->head_id,
+                'facility'      => $request->facility,
+            ]);
 
-        //     \UserLog::createLog('Create a new user');
-        // }
+            \UserLog::createLog('Create a new classroom');
+        } else {
+            $action = Classroom::where('id', $request->classroom_id)
+            ->update([
+                'name'          => $request->name,
+                'focus'         => $request->focus,
+                'grade'         => $request->grade,
+                'limtation'     => $request->limtation,
+                'head_id'       => $request->head_id,
+                'facility'      => $request->facility,
+            ]);
 
-        // if($action){
-            
-        //     return redirect()->back()->with([
-        //         'msg'                   => 'Success Create Data',
-        //         'icon'                  => 'success',
-        //         'confirmButtonColor'    => 'success',
-        //     ]);
-        // }
-        // return redirect()->back()->with([
-        //     'msg'                       => 'Fail Create Data',
-        //     'icon'                      => 'error',
-        //     'confirmButtonColor'        => 'danger',
-        // ]);
+            \UserLog::createLog('Update a Classroom data');
+        }
+
+        if($action){
+            return redirect()->back()->with([
+                'msg'                   => 'Success Create or Update Data',
+                'icon'                  => 'success',
+                'confirmButtonColor'    => 'success',
+            ]);
+        }
+        return redirect()->back()->with([
+            'msg'                       => 'Fail Create or Update Data',
+            'icon'                      => 'error',
+            'confirmButtonColor'        => 'danger',
+        ]);
     }
 
     public function destroy($id)

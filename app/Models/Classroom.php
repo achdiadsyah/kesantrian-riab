@@ -17,6 +17,7 @@ class Classroom extends Model
         'focus',
         'grade',
         'limitation',
+        'facility',
         'head_id',
     ];
 
