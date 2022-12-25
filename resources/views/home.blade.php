@@ -1,8 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="row gy-5 g-xl-10 align-items-center d-lg-none d-xl-none">
+    <div class="col-xl-12">
+        <div class="card h-100 bgi-no-repeat bgi-size-cover card-xl-stretch mb-5 mb-xl-8" style="background-image:url('{{asset('assets/media/misc')}}/menu-header-bg.jpg')">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div class="text-white fw-bold fs-2">
+                <h1 class="fw-bold text-white mb-2">Selamat Datang</h1>
+                <h4 class="text-white mb-2">Aplikasi Kesantrian</h3>
+                <h4 class="text-white mb-2">Ruhul Islam Anak Bangsa</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row gy-5 g-xl-10 align-items-center">
-    <div class="col-sm-6 col-xl-2 mb-xl-10">
+    <div class="col-6 col-md-2">
         <div class="card" style="background-color: #F6E5CA">
             <div class="card-body d-flex justify-content-between align-items-start flex-column">
                 <div class="d-flex flex-column">
@@ -14,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-xl-2 mb-xl-10">
+    <div class="col-6 col-md-2">
         <div class="card" style="background-color: #fd79a8">
             <div class="card-body d-flex justify-content-between align-items-start flex-column">
                 <div class="d-flex flex-column">
@@ -26,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-xl-2 mb-xl-10">
+    <div class="col-6 col-md-2">
         <div class="card" style="background-color: #74b9ff">
             <div class="card-body d-flex justify-content-between align-items-start flex-column">
                 <div class="d-flex flex-column">
@@ -38,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-xl-2 mb-xl-10">
+    <div class="col-6 col-md-2">
         <div class="card" style="background-color: #55efc4">
             <div class="card-body d-flex justify-content-between align-items-start flex-column">
                 <div class="d-flex flex-column">

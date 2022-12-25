@@ -14,12 +14,10 @@ Route::prefix('wilayah')->name('wilayah.')->group(function () {
     Route::get('village', [App\Http\Controllers\Master\WilayahController::class, 'getVillage'])->name('village');
 });
 
-//-------------------------- My Default Route---------------------------
-
 Auth::routes([
-    'register' => true,
-    'reset' => true,
-    'verify' => true,
+    'register'  => true,
+    'reset'     => true,
+    'verify'    => true,
 ]);
 
 Route::get('student/register', function () {
@@ -37,10 +35,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('account-setting-update-password', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('account-setting-update-password');
     });
 
-    
     // Super Access Only
     Route::middleware(['IsAdmin'])->group(function () {
         Route::prefix('admin')->name('admin.')->group(function () {
+            
+            Route::get('app-setting', [App\Http\Controllers\Admin\AppSettingController::class, 'index'])->name('app-setting');
+            // Route::get('role-detail/{id}', [App\Http\Controllers\Admin\RoleManagementController::class, 'detail'])->name('role-detail');
+            // Route::post('role-create-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'create'])->name('role-create-data');
+            // Route::post('role-update-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'update'])->name('role-update-data');
+            // Route::post('role-delete', [App\Http\Controllers\Admin\RoleManagementController::class, 'destroy'])->name('role-delete');
+
             Route::get('user-list', [App\Http\Controllers\Admin\UserManagementController::class, 'index'])->name('user-list');
             Route::get('user-detail/{id}', [App\Http\Controllers\Admin\UserManagementController::class, 'detail'])->name('user-detail');
             Route::post('user-create-data', [App\Http\Controllers\Admin\UserManagementController::class, 'create'])->name('user-create-data');
@@ -53,6 +57,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('role-create-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'create'])->name('role-create-data');
             Route::post('role-update-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'update'])->name('role-update-data');
             Route::post('role-delete', [App\Http\Controllers\Admin\RoleManagementController::class, 'destroy'])->name('role-delete');
+
         });
     });
 
