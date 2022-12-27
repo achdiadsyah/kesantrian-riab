@@ -14,7 +14,7 @@
 
 				<div class="d-flex flex-column flex-column-fluid flex-center w-lg-50 p-10">
 
-					<div class="d-flex justify-content-between flex-column-fluid flex-column">
+					<div class="d-flex justify-content-between flex-column-fluid flex-column mt-3">
 						@yield('content')
 					</div>
 

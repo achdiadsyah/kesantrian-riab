@@ -116,6 +116,15 @@
             <div class="card-footer">
                 <button class="btn btn-primary btn-sm" type="submit">Update</button>
             </div>
+
+            <div class="card-body">
+                <form action="{{route('uploadS3')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" value="" name="path" required>
+                    <input type="file" name="file" id="" required>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

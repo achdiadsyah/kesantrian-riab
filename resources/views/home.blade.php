@@ -5,10 +5,10 @@
     <div class="col-xl-12">
         <div class="card h-100 bgi-no-repeat bgi-size-cover card-xl-stretch mb-5 mb-xl-8" style="background-image:url('{{asset('assets/media/misc')}}/menu-header-bg.jpg')">
             <div class="card-body d-flex flex-column justify-content-between">
-                <div class="text-white fw-bold fs-2">
-                <h1 class="fw-bold text-white mb-2">Selamat Datang</h1>
-                <h4 class="text-white mb-2">Aplikasi Kesantrian</h3>
-                <h4 class="text-white mb-2">Ruhul Islam Anak Bangsa</h4>
+                <div class="text-white py-5">
+                    <h1 class="fw-bold text-white mb-2">Selamat Datang</h1>
+                    <h4 class="text-white mb-2">Aplikasi Kesantrian</h3>
+                    <h4 class="text-white mb-2">Ruhul Islam Anak Bangsa</h4>
                 </div>
             </div>
         </div>

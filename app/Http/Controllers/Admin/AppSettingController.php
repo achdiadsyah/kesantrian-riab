@@ -16,5 +16,4 @@ class AppSettingController extends Controller
         ];
         return view('admin.app-setting.index', $data);
     }
-
 }

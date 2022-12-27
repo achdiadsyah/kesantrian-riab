@@ -26,11 +26,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        if(env('STAFF_REGISTER') == true){
-            return view('auth.register');
-        } else {
-            return redirect()->route('login');
-        }
+        return view('auth.register');
     }
 
     protected function validator(array $data)

@@ -15,7 +15,7 @@ Route::prefix('wilayah')->name('wilayah.')->group(function () {
 });
 
 Auth::routes([
-    'register'  => true,
+    'register'  => false,
     'reset'     => true,
     'verify'    => true,
 ]);
@@ -26,6 +26,14 @@ Route::get('student/register', function () {
 
 // Can Access after verified and login
 Route::middleware(['auth', 'verified'])->group(function () {
+    
+    // Bucket S3 Method
+    Route::prefix('cdn')->group(function () {
+        Route::get('/', [App\Http\Controllers\BucketController::class, 'showFile'])->name('fileS3');
+        Route::post('upload', [App\Http\Controllers\BucketController::class, 'upload'])->name('uploadS3');
+        Route::post('delete', [App\Http\Controllers\BucketController::class, 'delete'])->name('deleteS3')->middleware('IsStaff');
+        Route::get('archive/{id}', [App\Http\Controllers\BucketController::class, 'archive'])->name('archiveS3')->middleware('IsStaff');
+    });
 
     // Public Menu
     Route::prefix('home')->group(function () {
@@ -38,7 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Super Access Only
     Route::middleware(['IsAdmin'])->group(function () {
         Route::prefix('admin')->name('admin.')->group(function () {
-            
+
             Route::get('app-setting', [App\Http\Controllers\Admin\AppSettingController::class, 'index'])->name('app-setting');
             // Route::get('role-detail/{id}', [App\Http\Controllers\Admin\RoleManagementController::class, 'detail'])->name('role-detail');
             // Route::post('role-create-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'create'])->name('role-create-data');
