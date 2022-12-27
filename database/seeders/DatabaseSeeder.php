@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\AppSetting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -72,5 +73,30 @@ class DatabaseSeeder extends Seeder
             'role_id'           => $role->id,
         ]);
 
+        AppSetting::create([
+            'app_name'  => 'Kesantrian',
+            'app_description'   => 'Aplikasi Kesantrian',
+            'app_logo_light'  => '',
+            'app_logo_dark'  => '',
+            'app_version'   => '0.0.1',
+            'school_full_name'  => 'Nama Sekolah Negeri',
+            'school_short_name' => 'NSN',
+            'school_logo_light'   => '',
+            'school_logo_dark'   => '',
+            'school_address'    => 'Jl. Banda Aceh - Medan',
+            'school_phone'  => '081263280610',
+            'school_mobile' => '081263280610',
+            'school_email'  => 'admin@admin.com',
+            'school_npsn'   => '123456',
+            'school_instagram'  => '#',
+            'school_facebook'   => '#',
+            'school_twitter'    => '#',
+            'school_youtube'    => '#',
+            'school_website'    => '#',
+            'school_headmaster' => 'Ryan Syah',
+            'is_interface_maintenance'  => '0',
+            'is_api_maintenance'    => '1',
+            'is_payment_maintenance'    => '1',
+        ]);
     }
 }

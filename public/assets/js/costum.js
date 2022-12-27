@@ -49,6 +49,60 @@ function formatDate(date) {
     return [day, month, year].join('-');
 }
 
+function formatDateFull(date) {
+    var d = new Date(date);
+    var month = '' + (d.getMonth() + 1);
+    var day = '' + d.getDate();
+    var year = d.getFullYear();
+    var hour = d.getHours();
+    var minute = d.getMinutes();
+    var second = d.getSeconds();
+    switch (month) {
+        case '1':
+            month = "Jan";
+            break;
+        case '2':
+            month = "Feb";
+            break;
+        case '3':
+            month = "Mar";
+            break;
+        case '4':
+            month = "Apr";
+            break;
+        case '5':
+            month = "Mei";
+            break;
+        case '6':
+            month = "Jun";
+            break;
+        case '7':
+            month = "Jul";
+            break;
+        case '8':
+            month = "Aug";
+            break;
+        case '9':
+            month = "Sep";
+            break;
+        case '10':
+            month = "Okt";
+            break;
+        case '11':
+            month = "Nov";
+            break;
+        case '12':
+            month = "Des";
+            break;
+    }
+
+    if (day.length < 2) {
+        day = '0' + day;
+    }
+
+    return [day, month, year].join('-') + " " + [hour, minute, second].join(':');
+}
+
 function capitalize(s) {
     return s[0].toUpperCase() + s.slice(1);
 }

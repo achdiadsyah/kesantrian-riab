@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('app_name')->nullable();
             $table->string('app_description')->nullable();
-            $table->string('app_logo')->nullable();
+            $table->string('app_logo_light')->nullable();
+            $table->string('app_logo_dark')->nullable();
             $table->string('app_version')->nullable();
             
             $table->string('school_full_name')->nullable();
             $table->string('school_short_name')->nullable();
+            $table->string('school_logo_light')->nullable();
+            $table->string('school_logo_dark')->nullable();
             $table->string('school_address')->nullable();
             $table->string('school_phone')->nullable();
             $table->string('school_mobile')->nullable();

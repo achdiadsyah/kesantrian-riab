@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link" href="">
+                    <a class="menu-link" href="{{route('admin.app-log')}}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <i class="fas fa-book"></i>

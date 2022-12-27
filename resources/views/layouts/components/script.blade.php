@@ -4,6 +4,8 @@
 <script src="{{asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
 <script src="{{asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
 <script src="{{asset('assets/js/widgets.bundle.js')}}"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+<script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
 <script src="{{asset('assets/js/costum.js')}}"></script>
 
 @if(session('msg'))

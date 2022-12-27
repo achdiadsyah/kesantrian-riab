@@ -48,10 +48,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('admin')->name('admin.')->group(function () {
 
             Route::get('app-setting', [App\Http\Controllers\Admin\AppSettingController::class, 'index'])->name('app-setting');
-            // Route::get('role-detail/{id}', [App\Http\Controllers\Admin\RoleManagementController::class, 'detail'])->name('role-detail');
-            // Route::post('role-create-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'create'])->name('role-create-data');
-            // Route::post('role-update-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'update'])->name('role-update-data');
-            // Route::post('role-delete', [App\Http\Controllers\Admin\RoleManagementController::class, 'destroy'])->name('role-delete');
+            Route::post('app-setting', [App\Http\Controllers\Admin\AppSettingController::class, 'update'])->name('update-setting');
 
             Route::get('user-list', [App\Http\Controllers\Admin\UserManagementController::class, 'index'])->name('user-list');
             Route::get('user-detail/{id}', [App\Http\Controllers\Admin\UserManagementController::class, 'detail'])->name('user-detail');
@@ -65,6 +62,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('role-create-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'create'])->name('role-create-data');
             Route::post('role-update-data', [App\Http\Controllers\Admin\RoleManagementController::class, 'update'])->name('role-update-data');
             Route::post('role-delete', [App\Http\Controllers\Admin\RoleManagementController::class, 'destroy'])->name('role-delete');
+
+            Route::get('app-log', [App\Http\Controllers\Admin\AppLogController::class, 'index'])->name('app-log');
 
         });
     });
